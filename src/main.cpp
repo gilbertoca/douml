@@ -70,6 +70,12 @@ int main(int argc, char ** argv)
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
+    QTranslator translator;
+    QString locale = QLocale::system().name();
+    translator.load(QString("/usr/share/douml/douml__") + locale);
+    a.installTranslator(&translator);
+
+
 //#ifdef DEBUG
     QsLogging::Logger & logger = QsLogging::Logger::instance();
     logger.setLoggingLevel(QsLogging::TraceLevel);

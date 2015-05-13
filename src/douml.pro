@@ -551,6 +551,7 @@ mac:QMAKE_CXXFLAGS += -mmacosx-version-min=10.7 -stdlib=libc++
 mac:LIBS += -lc++
 LIBS += -L../bin -lUniversalModels
 RESOURCES += icons.qrc ../douml.qrc
+TRANSLATIONS = douml_es.ts
 
 INCLUDEPATH += $${PWD}
 

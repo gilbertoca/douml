@@ -24,12 +24,19 @@
 // home   : http://sourceforge.net/projects/douml
 //
 // *************************************************************************
+#include "translate.h"
+
+QString myTR(QString s){return s;}
+QString myTR(QString s,QString p1){return s.arg(p1);}
+QString myTR(QString s,QString p1,QString p2){return s.arg(p1).arg(p2);}
+QString myTR(QString s,QString p1,QString p2,QString p3){return s.arg(p1).arg(p2).arg(p3);}
+QString myTR(QString s,QString p1,QString p2,QString p3,QString p4){return s.arg(p1).arg(p2).arg(p3).arg(p4);}
+
 
 #include <stdio.h>
 #include <q3dict.h>
 #include <qmessagebox.h>
 
-#include "translate.h"
 
 static Q3Dict<QString> * CurrentTranslation = 0;
 static QString CurrentLang;
@@ -160,7 +167,7 @@ static void translate(QString & s)
     if (s2 != 0)
         s = b + *s2 + e;
 }
-
+/*
 QString TR(QString s)
 {
     translate(s);
@@ -211,3 +218,4 @@ QString TR(QString s, QString a1, QString a2, QString a3)
 
     return s;
 }
+*/

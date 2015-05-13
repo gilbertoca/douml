@@ -28,10 +28,24 @@
 #ifndef TRANSLATION_H
 #define TRANSLATION_H
 
-extern QString TR(QString s);
-extern QString TR(QString s, QString a1); // s contains %1
-extern QString TR(QString s, QString a1, QString a2); // s contains %1 and %2
-extern QString TR(QString s, QString a1, QString a2, QString a3); // s contains %1 %2 and %3
+#include <QString>
+
+//#define TR(PARAM1,PARAM2) myTR(QObject::tr(PARAM1),PARAM2)
+//#define TR(PARAM1,PARAM2,PARAM3) QObject::tr(PARAM1).arg(PARAM2,PARAM3)
+//#define TR(PARAM1,PARAM2,PARAM3,PARAM4) QObject::tr(PARAM1).arg(PARAM2,PARAM3,PARAM4)
+//#define TR QObject::tr
+//
+#define TR(PARAMS,...) myTR(QObject::tr(PARAMS), ##__VA_ARGS__ )
+
+extern QString myTR(QString s);
+extern QString myTR(QString s,QString param1);
+extern QString myTR(QString s,QString param1,QString param2);
+extern QString myTR(QString s,QString param1,QString param2,QString param3);
+
+//extern QString TR(QString s);
+//extern QString TR(QString s, QString a1); // s contains %1
+//extern QString TR(QString s, QString a1, QString a2); // s contains %1 and %2
+//extern QString TR(QString s, QString a1, QString a2, QString a3); // s contains %1 %2 and %3
 
 extern QString current_lang();
 extern void set_lang(QString);
